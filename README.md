@@ -63,20 +63,55 @@ Each script is currently provided as is, so please review each file and make the
 
 The first script should generate two CSV files: "test_labels.csv" and "train_labels.csv". Please take a second to confirm that each of these files contain data; the data should correspond to geometry for bounding boxes from step 3.
 
-The 3_generate_tfrecord.py script then reads these and generates the TFRecord files. Please note, at this stage you should have TensorFlow installed on your system and the following repository available (https://github.com/tensorflow/models/tree/master/research). To execute this script for the test and train subsets, create a data folder in your workspace and run the following commands from your prompt:
+The 3_generate_tfrecord.py script then reads these and generates the TFRecord files. Please note, at this stage you should have TensorFlow installed on your system and the following repository available in your workspace (https://github.com/tensorflow/models/tree/master/research). To execute this script for the test and train subsets, create a data folder in your workspace and run the following commands from your prompt:
 
+'''
 python 3_generate_tfrecord.py --csv_input=data/train_labels.csv --output_path=data/train.record
 python 3_generate_tfrecord.py --csv_input=data/test_labels.csv --output_path=data/test.record
+'''
 
 You should now see the train.record and test.record in your data folder. 
 
 For reference, you may take a look at the data folder in this repository to see what your singular CSVs and TFRecord files should look like. 
 
-## Step 5: Set up a configuration file containing CNN hyperparameters
+## Step 5: Set up a configuration file containing CNN hyperparameters and a label file containing your object classes
+
+Goal: To start training, we need the images, matching TFRecords for training and testing data, and we need to set up a configuration file that will hold most of the hyperparameters for the CNN. We will also use a label file that tells the model which classes we expect to detect. 
+
+Description: The configuration file's variables contain references to hyperparameters for the CNN: These determine most of the architecture of the neural network, including the number of output classes, matching thresholds, number of layers in the network, convolutional box parameters, which activation function will be used, and several other parameters. For help with setting up your own configuration file, refer to the [TensorFlow documentation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/configuring_jobs.md). Alternatively, you may use the configuration file we used and is [available in this repo](https://github.com/Qberto/ML_ObjectDetection_CAFO/training/ssd_mobilenet_v1_cafo.config). If you use the config file attached, be sure to alter the PATH_TO_BE_CONFIGURED variables to reference your workspace. You may also want to change your batch size, depending on your GPU's VRAM. The default of 24 should work for fairly modern systems with powerful graphics cards, but if you experience a memory error, you may want to test with a lower batch size.
+
+We also have the option of using an existing model and using transfer learning to teach the model how to detect a new object. In this case, we'll use the [SSD with MobileNet V1](https://github.com/tensorflow/models/tree/master/research/object_detection/models) as a checkpoint and teach it to detect a new object: CAFO sites in satellite imagery. 
+
+The label file is a much simpler process... in fact here's the entire contents of the one we used:
+
+item {
+	id: 1
+	name: 'cafo'
+}
+
+This one can be found at training/object-detection.pbtxt.
 
 ## Step 6: Train
 
+Goal: We can finally train the model! Let's teach this puppy how to do a new trick: Find CAFO sites in satellite imagery.
+
+Description: We will use a script from the TensorFlow models repo to execute the training epochs (feedforward + backpropagation) for the CNN. You can find the script in this repo at 4_train.py but I recommend that you clone the [TensorFlow models repo](https://github.com/tensorflow/models/tree/master/research/object_detection) and execute train.py from that directory, referencing your workspace and configuration file as needed. 
+
+To execute training (finally!) run the following command:
+
+'''
+python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v1_pets.config
+'''
+
+You should now start seeing the training epochs, with a loss value provided after each iteration. As the model continues training, the loss should decrease. The goal in this case is to approach less than 2. In my Laptop with an NVIDIA Quattro, it took roughly a full day (22 hours), but in other systems or better GPUs it should be faily quick. I also did not configure it to correctly use my GPU, so more pending on that item...
+
+Every so many steps, the training script will export a checkpoint of the model in its current state. Once we reach a consistently low number (~ 2 in our case), we can stop the training process. Before doing so though, take a look at your designated training directory and confirm that you can see "model.ckpt-<stepcount>.data-00000-of-00001", "model.ckpt-<stepcount>.index", and "model.ckpt<stepcount>.meta" files. These are the output of our training!
+
+Be easy on your model as it learns a whole new way of seeing the world for you! 
+
 ## Step 7: Export a computation graph from the new trained model
+
+
 
 ## Step 8: Detect CAFO sites in real time!
 
