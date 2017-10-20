@@ -9,11 +9,17 @@ Step 1: Data Preparation - Image "Chip" Extraction
 
 Step 2: Annotation and Labeling of the Images
 
-Step 3: CNN Model Training
+Step 3: Split labeled images into train/test samples
+
+Step 4: Generate TF Records from the train/test splits
 
 Step 4: CNN Model visual verification
 
-Step 5: Output feature transfer to GIS
+Step 5: Set up a configuration file containing CNN hyperparameters and a label file containing your object classes
+
+Step 6: Train
+
+Step 7: Export an inference graph from the new trained model
 
 Please consider this project and all aspects of this repository as beta, with extensive changes and further testing still needed to finalize.
 
@@ -127,17 +133,17 @@ python 3_export_inference_graph.py \
 
 In this case, the graph is exported to the [cafo_inference_graph](https://github.com/Qberto/ML_ObjectDetection_CAFO/cafo_inference_graph) directory. We're ready to test in real time!
 
-## Step 8: Detect CAFO sites from a folder of images.
+## Step 8: Detect CAFO sites!
 
-Goal: Run our inference graph from Jupyter Notebook and detect images in a specified folder. 
+Goal: Run our inference graph from Jupyter Notebook and detect images in a specified folder or in a video capture. 
 
-Description: A [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_CAFO/object_detection_CAFO_staticimages.ipynb) is provided to execute the inference graph and point it at a folder of images. The output should be images with bounding boxes and the confidence level of the objects detected in each image. This is interesting, but let's skip to the real star of the show... real-time object detection!
+Description: A [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_CAFO/object_detection_CAFO_staticimages.ipynb) is provided to execute the inference graph and point it at a folder of images. Another [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_CAFO/object_detection_CAFO_screencap.ipynb) is provided to execute the inference graph, but this notebook uses Python's PIL library to capture a quadrant of our current screen to pass to the model. The output should be images with bounding boxes and the confidence level of the objects detected in each image. 
 
-## Step 9: Detect CAFO sites in real time!
+## Step 9: Transfer to GIS
 
-Goal: Execute the model on a video feed of satellite imagery and see how it detects CAFO sites!
+Goal: We need to transfer the bounding box information from detected objects to GIS features.
 
-Description: A [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_CAFO/object_detection_CAFO_screencap.ipynb) is provided to execute the inference graph, but this time we will use a quadrant of our current screen to pass to the model. 
+Description: Work and details pending... stay tuned!
 
 ## Step 9: ...
 
@@ -145,7 +151,9 @@ Description: A [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_C
 
 
 
-### Appendix A: CNN Model Pseudocode
+
+
+## Appendix A: CNN Model General
 
 The CNN Model pseudocode can be categorized by two general steps: Feedforward and backpropagation. In other terms, the movement of the data through the neural network, and the learning or training of the model given results in an iteration. A single feedforward and backpropagation loop is known as an "epoch".
 
