@@ -109,11 +109,35 @@ Every so many steps, the training script will export a checkpoint of the model i
 
 Be easy on your model as it learns a whole new way of seeing the world for you! 
 
-## Step 7: Export a computation graph from the new trained model
+## Step 7: Export an inference graph from the new trained model
 
+Goal: We need to export an inference graph from our model to test how it performs in real time. 
 
+Description: The models/object_detection directory has a script that does this for us: export_inference_graph.py. It has also been [included in this repo](https://github.com/Qberto/ML_ObjectDetection_CAFO/5_export_inference_graph.py).
 
-## Step 8: Detect CAFO sites in real time!
+We run the script by passing it our checkpoint file and the configuration file from the earlier steps. Here's a sample of a call to the script:
+
+'''
+python 3_export_inference_graph.py \
+    --input_type image_tensor \
+    --pipeline_config_path training/ssd_mobilenet_v1_cafo.config\
+    --trained_checkpoint_prefix training/model.ckpt-9160\
+    --output_directory cafo_inference_graph
+'''
+
+In this case, the graph is exported to the [cafo_inference_graph](https://github.com/Qberto/ML_ObjectDetection_CAFO/cafo_inference_graph) directory. We're ready to test in real time!
+
+## Step 8: Detect CAFO sites from a folder of images.
+
+Goal: Run our inference graph from Jupyter Notebook and detect images in a specified folder. 
+
+Description: A [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_CAFO/object_detection_CAFO_staticimages.ipynb) is provided to execute the inference graph and point it at a folder of images. The output should be images with bounding boxes and the confidence level of the objects detected in each image. This is interesting, but let's skip to the real star of the show... real-time object detection!
+
+## Step 9: Detect CAFO sites in real time!
+
+Goal: Execute the model on a video feed of satellite imagery and see how it detects CAFO sites!
+
+Description: A [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_CAFO/object_detection_CAFO_screencap.ipynb) is provided to execute the inference graph, but this time we will use a quadrant of our current screen to pass to the model. 
 
 ## Step 9: ...
 
