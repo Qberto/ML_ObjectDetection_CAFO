@@ -1,7 +1,7 @@
 # Using a TensorFlow CNN to Detect Concentrated Animal Feeding Operations (CAFO) in Satellite Imagery
 Repository containing model development, training, and execution for the CAFO satellite imagery detection process.
 
-Summary: The Environmental Protection Agency is interested in building a dataset of Concentrated Animal Feeding Operation (CAFO) locations. This process is an exploration of how we can use a Convolutional Neural Network to scan satellite imagery from the [National Agricultural Imagery Program (NAIP)](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) and detect CAFO facilities, writing the detected objects as features in a GIS dataset. 
+Summary: The Environmental Protection Agency is interested in building a dataset of Concentrated Animal Feeding Operation (CAFO) locations. This process is an exploration of how we can use a Convolutional Neural Network (CNN) to scan satellite imagery from the [National Agricultural Imagery Program (NAIP)](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) and detect CAFO facilities, writing the detected objects as features in a GIS dataset. 
 
 The process is encapsulated in the following steps:
 
@@ -27,8 +27,26 @@ The 1_image_exporter.py script iterates on each record of the Kentucky feature c
 
 ## Step 2: Annotation and Labeling of the Images
 
+Goal: We need to generate TFRecords: the inputs to our CNN. To do this, we must use our exported images and manually label where the Kentucky CAFO site resides in each image. This is used by the CNN to 
+
 ## Step 3: CNN Model Training
 
 ## Step 4: CNN Model visual verification
 
 ## Step 5: Output feature transfer to GIS
+
+
+
+### Appendix A: CNN Model Pseudocode
+
+The CNN Model pseudocode can be categorized by two general steps: Feedforward and backpropagation. In other terms, the movement of the data through the neural network, and the learning or training of the model given results in an iteration. A single feedforward and backpropagation loop is known as an "epoch".
+
+#### Feedforward: 
+input > weight > hidden layer 1 (activation function) > weights > hidden layer 2 (activation function) > weights > output layer
+
+#### Backpropagation:
+compare output to intended output > cost function (cross entropy)
+optimization function (optimizer) > minimize cost (AdamOptimizer, Stochastic Gradient Descent, AdaGrad, etc.)
+
+#### Epoch:
+feedforward + backpropagation
