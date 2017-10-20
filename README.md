@@ -21,6 +21,12 @@ Step 6: Train
 
 Step 7: Export an inference graph from the new trained model
 
+Step 8: Detect CAFO sites!
+
+Step 9: Convert Information to GIS
+
+
+
 Please consider this project and all aspects of this repository as beta, with extensive changes and further testing still needed to finalize.
 
 ## Step 1: Data Preparation - Image "Chip" Extraction
@@ -139,7 +145,7 @@ Goal: Run our inference graph from Jupyter Notebook and detect images in a speci
 
 Description: A [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_CAFO/object_detection_CAFO_staticimages.ipynb) is provided to execute the inference graph and point it at a folder of images. Another [Jupyter Notebook](https://github.com/Qberto/ML_ObjectDetection_CAFO/object_detection_CAFO_screencap.ipynb) is provided to execute the inference graph, but this notebook uses Python's PIL library to capture a quadrant of our current screen to pass to the model. The output should be images with bounding boxes and the confidence level of the objects detected in each image. 
 
-## Step 9: Transfer to GIS
+## Step 9: Convert Information to GIS
 
 Goal: We need to transfer the bounding box information from detected objects to GIS features.
 
