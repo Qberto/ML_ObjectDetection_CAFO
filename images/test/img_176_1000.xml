@@ -1,0 +1,26 @@
+<annotation>
+	<folder>cafo_trained_images</folder>
+	<filename>img_176_1000.jpg</filename>
+	<path>C:\Users\albe9057\Documents\ANieto_SolutionEngineering\Projects\EPA\ArcGISPythonAPI_for_EPA\Inputs\cafo_trained_images\img_176_1000.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>816</width>
+		<height>1056</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cafo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>570</xmin>
+			<ymin>500</ymin>
+			<xmax>789</xmax>
+			<ymax>676</ymax>
+		</bndbox>
+	</object>
+</annotation>
