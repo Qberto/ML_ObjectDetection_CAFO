@@ -27,13 +27,37 @@ The 1_image_exporter.py script iterates on each record of the Kentucky feature c
 
 ## Step 2: Annotation and Labeling of the Images
 
-Goal: We need to generate TFRecords: the inputs to our CNN. To do this, we must use our exported images and manually label where the Kentucky CAFO site resides in each image. This is used by the CNN to 
+Goal: We need to generate TFRecords: the inputs to our CNN. To do this, we must use our exported images and manually label where the Kentucky CAFO site resides in each image. The outputs will be provided to TensorFlow as a PASCAL_VOC format that can be easily interpreted by an existing CNN or for development of a new CNN. 
 
-## Step 3: CNN Model Training
+Description: Using [LabelImg](https://github.com/tzutalin/labelImg), we can create bounding boxes on images and generate xmls with data that can be used to generate TFRecords for our CNN. 
 
-## Step 4: CNN Model visual verification
+Once installed (you can get it with git clone https://github.com/tzutalin/labelImg), labelImg is pointed at the directory of our exported images from step 1. A lengthy process ensues: we must iterate on each image and using our own Neural Network (our eyes and noggins!) we must annotate where the CAFO sites are in each image.
 
-## Step 5: Output feature transfer to GIS
+Example: 
+
+![Extracted CAFO Image](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/doc/img/img_106_2000.jpg)
+
+![Labeled for Test/Train Split](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/doc/img/img_106_2000_labeled.jpg)
+
+This is a simple but repetitive process. It takes some time but the more images you have and the more detailed the labeling, the better the model can be trained for detection of these sites in any location.
+
+
+
+## Step 3: Split labeled images into train/test samples
+
+## Step 4: Generate TF Records from the train/test splits
+
+## Step 5: Set up a configuration file containing CNN hyperparameters
+
+## Step 6: Train
+
+## Step 7: Export a computation graph from the new trained model
+
+## Step 8: Detect CAFO sites in real time!
+
+## Step 9: ...
+
+## Step 10: Party.
 
 
 
