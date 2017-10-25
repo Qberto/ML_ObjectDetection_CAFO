@@ -25,7 +25,7 @@ Step 8: Detect CAFO sites!
 
 Step 9: Convert Information to GIS
 
-
+![Neural Network Pattern Detection](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/doc/img/neuralnetwork.jpg)
 
 Please consider this project and all aspects of this repository as beta, with extensive changes and further testing still needed to finalize.
 
@@ -108,8 +108,6 @@ This one can be found at training/object-detection.pbtxt.
 Goal: We can finally train the model! Let's teach this puppy how to do a new trick: Find CAFO sites in satellite imagery.
 
 Description: We will use a script from the TensorFlow models repo to execute the training epochs (feedforward + backpropagation) for the CNN. You can find the script in this repo at 4_train.py but I recommend that you clone the [TensorFlow models repo](https://github.com/tensorflow/models/tree/master/research/object_detection) and execute train.py from that directory, referencing your workspace and configuration file as needed. 
-
-![Neural Network Pattern Detection](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/doc/img/neuralnetwork.jpg)
 
 To execute training (finally!) run the following command:
 
