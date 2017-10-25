@@ -41,7 +41,7 @@ The 1_image_exporter.py script iterates on each record of the Kentucky feature c
 
 Goal: We need to generate TFRecords: the inputs to our CNN. To do this, we must use our exported images and manually label where the Kentucky CAFO site resides in each image. The outputs will be provided to TensorFlow as a PASCAL_VOC format that can be easily interpreted by an existing CNN or for development of a new CNN.
 
-![The Anatomy of a CAFO Site](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/doc/img/CAFO_Anatomy.jpg)
+![The Anatomy of a CAFO Site](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/doc/img/CAFO_Anatomy.JPG)
 
 Description: Using [LabelImg](https://github.com/tzutalin/labelImg), we can create bounding boxes on images and generate xmls with data that can be used to generate TFRecords for our CNN. 
 
