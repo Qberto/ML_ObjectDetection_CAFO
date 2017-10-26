@@ -79,10 +79,10 @@ The first script should generate two CSV files: "test_labels.csv" and "train_lab
 
 The 3_generate_tfrecord.py script then reads these and generates the TFRecord files. Please note, at this stage you should have TensorFlow installed on your system and the following repository available in your workspace (https://github.com/tensorflow/models/tree/master/research). To execute this script for the test and train subsets, create a data folder in your workspace and run the following commands from your prompt:
 
-'''
+```
 python 3_generate_tfrecord.py --csv_input=data/train_labels.csv --output_path=data/train.record
 python 3_generate_tfrecord.py --csv_input=data/test_labels.csv --output_path=data/test.record
-'''
+```
 
 You should now see the train.record and test.record in your data folder. 
 
@@ -113,9 +113,9 @@ Description: We will use a script from the TensorFlow models repo to execute the
 
 To execute training (finally!) run the following command:
 
-'''
+```
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v1_pets.config
-'''
+```
 
 You should now start seeing the training epochs, with a loss value provided after each iteration. As the model continues training, the loss should decrease. The goal in this case is to approach less than 2. In my Laptop with an NVIDIA Quattro, it took roughly a full day (22 hours), but in other systems or better GPUs it should be faily quick. I also did not configure it to correctly use my GPU, so more pending on that item...
 
@@ -131,13 +131,13 @@ Description: The models/object_detection directory has a script that does this f
 
 We run the script by passing it our checkpoint file and the configuration file from the earlier steps. Here's a sample of a call to the script:
 
-'''
+```
 python 3_export_inference_graph.py \
     --input_type image_tensor \
     --pipeline_config_path training/ssd_mobilenet_v1_cafo.config\
     --trained_checkpoint_prefix training/model.ckpt-9160\
     --output_directory cafo_inference_graph
-'''
+```
 
 In this case, the graph is exported to the [cafo_inference_graph](https://github.com/Qberto/ML_ObjectDetection_CAFO/cafo_inference_graph) directory. We're ready to test in real time!
 
@@ -155,7 +155,7 @@ Description: Work and details pending... stay tuned!
 
 ## Step 9: ...
 
-## Step 10: Party.
+## Step 10: Share with us!
 
 
 
