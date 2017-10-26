@@ -13,8 +13,6 @@ Step 3: Split labeled images into train/test samples
 
 Step 4: Generate TF Records from the train/test splits
 
-Step 4: CNN Model visual verification
-
 Step 5: Set up a configuration file containing CNN hyperparameters and a label file containing your object classes
 
 Step 6: Train
@@ -127,7 +125,7 @@ Be easy on your model as it learns a whole new way of seeing the world for you!
 
 Goal: We need to export an inference graph from our model to test how it performs in real time. 
 
-Description: The models/object_detection directory has a script that does this for us: export_inference_graph.py. It has also been [included in this repo](https://github.com/Qberto/ML_ObjectDetection_CAFO/5_export_inference_graph.py).
+Description: The models/object_detection directory has a script that does this for us: export_inference_graph.py. It has also been [included in this repo](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/cafo_inference_graph/frozen_inference_graph.pb).
 
 We run the script by passing it our checkpoint file and the configuration file from the earlier steps. Here's a sample of a call to the script:
 
