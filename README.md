@@ -69,9 +69,9 @@ Goal: We need to create TFRecord files that we need to train an object detection
 
 Description: A few format changes must occur: First, we convert the XML files from all the images in the train and test folders into singular CSV files. Second, we convert the singular CSV files into TFRecord files. We'll use a few scripts to perform the conversions:
 
-1. [XML to CSV](https://github.com/Qberto/ML_ObjectDetection_CAFO/2_xml_to_csv.py)
+1. [XML to CSV](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/2_xml_to_csv.py)
 
-2. [Generate TFRecord](https://github.com/Qberto/ML_ObjectDetection_CAFO/3_generate_tfrecord.py)
+2. [Generate TFRecord](https://github.com/Qberto/ML_ObjectDetection_CAFO/blob/master/3_generate_tfrecord.py)
 
 Each script is currently provided as is, so please review each file and make the appropriate changes to reference your own directories and workspace. A future version of this repo will contain a more appropriate process to handle relative paths and more seamless transition of labeled images to TFRecords.
 
