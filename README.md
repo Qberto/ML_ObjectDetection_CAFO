@@ -1,7 +1,7 @@
 # Using a TensorFlow CNN to Detect Concentrated Animal Feeding Operations (CAFO) in Satellite Imagery
 Repository containing model development, training, and execution for the CAFO satellite imagery detection process.
 
-Summary: The Environmental Protection Agency is interested in building a dataset of Concentrated Animal Feeding Operation (CAFO) locations. This process is an exploration of how we can use a Convolutional Neural Network (CNN) to scan satellite imagery from the [National Agricultural Imagery Program (NAIP)](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) and detect CAFO facilities, writing the detected objects as features in a GIS dataset. 
+Summary: This process is an exploration of how we can use a Convolutional Neural Network (CNN) to scan satellite imagery from the [National Agricultural Imagery Program (NAIP)](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) and detect CAFO facilities, writing the detected objects as features in a GIS dataset. 
 
 The process is encapsulated in the following steps:
 
