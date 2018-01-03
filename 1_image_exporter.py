@@ -21,14 +21,14 @@ import os
 #         - Export to JPEG to the output images directory using formatting for naming
 
 # aprx = arcpy.mp.ArcGISProject("CURRENT")
-aprx = arcpy.mp.ArcGISProject(r"C:\Users\albe9057\Documents\ANieto_SolutionEngineering\Projects\EPA\ArcGISPythonAPI_for_EPA\Work\EPA_CAFO_Training\EPA_CAFO_Training.aprx")
+aprx = arcpy.mp.ArcGISProject(r"")  # Set path to your ArcGIS Pro Project
 
 m = aprx.listMaps()[0]
 cafos_lyr = m.listLayers("ky_afo_lonx_nonzero")[0]
 cafos_lyr_id_field = "FID"
 lyt = aprx.listLayouts()[0]
 mf = lyt.listElements()[0]
-output_dir = r"C:\Users\albe9057\Documents\ANieto_SolutionEngineering\Projects\EPA\ArcGISPythonAPI_for_EPA\Inputs\cafo_image_training"
+output_dir = r""  # Set path to your output folder
 cafos_scales_list = [1000, 2000, 3000]
 
 # cafos_lyr_name = arcpy.GetParameterAsText(0)
