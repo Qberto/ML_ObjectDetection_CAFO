@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>img_37_500.jpg</filename>
+	<path>C:\Users\ehha\Documents\MachineLearning\ML_ObjectDetection_CAFO-master\testimages\train\img_37_500.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>816</width>
+		<height>1056</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>zebracross</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>460</xmin>
+			<ymin>456</ymin>
+			<xmax>512</xmax>
+			<ymax>572</ymax>
+		</bndbox>
+	</object>
+</annotation>
