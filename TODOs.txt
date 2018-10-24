@@ -1,0 +1,14 @@
+Run as admin 
+proenv.bat
+
+Get GitHub
+
+pip install jupyter notebook
+
+broken link on kycafos shapefile - Repair data source
+
+Bring CAFO notebook over
+
+Bring CAFO frozen graph over
+
+Bring Label map

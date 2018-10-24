@@ -1,0 +1,6 @@
+images = 31 *3*256*256
+features = 60
+features per image = [min = 1, mean = 1.94, max = 5]
+classes = 1
+cls name              cls value     images   features    min size   mean size    max size
+1                             1         31         60        1.35      584.86     2871.94

@@ -1,0 +1,30 @@
+<PAMDataset>
+  <SRS>PROJCS["WGS_1984_Web_Mercator_Auxiliary_Sphere",GEOGCS["GCS_WGS_1984",DATUM["WGS_1984",SPHEROID["WGS_84",6378137.0,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0.0,AUTHORITY["EPSG","8901"]],UNIT["Degree",0.0174532925199433,AUTHORITY["EPSG","9102"]],AUTHORITY["EPSG","4326"]],PROJECTION["Mercator_Auxiliary_Sphere",AUTHORITY["Esri","43104"]],PARAMETER["False_Easting",0.0,AUTHORITY["Esri","100001"]],PARAMETER["False_Northing",0.0,AUTHORITY["Esri","100002"]],PARAMETER["Central_Meridian",0.0,AUTHORITY["Esri","100010"]],PARAMETER["Standard_Parallel_1",0.0,AUTHORITY["Esri","100025"]],PARAMETER["Auxiliary_Sphere_Type",0.0,AUTHORITY["Esri","100035"]],UNIT["Meter",1.0,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","3857"]]</SRS>
+  <Metadata domain="IMAGE_STRUCTURE">
+    <MDI key="INTERLEAVE">PIXEL</MDI>
+  </Metadata>
+  <Metadata>
+    <MDI key="DataType">Processed</MDI>
+    <MDI key="HighCellSize">39116.799999999995634425</MDI>
+    <MDI key="LowCellSize">0.500000000000000000</MDI>
+    <MDI key="MaxCellSize">1955840.000000000000000000</MDI>
+  </Metadata>
+  <Metadata domain="Esri">
+    <MDI key="PyramidResamplingType">NEAREST</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <Metadata>
+      <MDI key="BandName">Band_1</MDI>
+    </Metadata>
+  </PAMRasterBand>
+  <PAMRasterBand band="2">
+    <Metadata>
+      <MDI key="BandName">Band_2</MDI>
+    </Metadata>
+  </PAMRasterBand>
+  <PAMRasterBand band="3">
+    <Metadata>
+      <MDI key="BandName">Band_3</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>
